@@ -43,12 +43,12 @@ fn main() {
         //make it chonkier
         lab.set_size_request(600,400);
         //which targets are allowed to drag stuff into our label? (only other apps)
-        let targets = vec![
+        let targets = vec![//no idea what this does really, It's just needed as an argument to the next line
             gtk::TargetEntry::new("STRING", gtk::TargetFlags::OTHER_APP, 0),
             gtk::TargetEntry::new("text/plain", gtk::TargetFlags::OTHER_APP, 0),
         ];
         //what to do on drag?
-        lab.drag_dest_set(gtk::DestDefaults::ALL, &targets, gdk::DragAction::COPY);
+        lab.drag_dest_set(gtk::DestDefaults::ALL, &targets, gdk::DragAction::COPY);//https://gtk-rs.org/docs/gtk/prelude/trait.WidgetExtManual.html#tymethod.drag_dest_set
 
         //clone some widgets so that they can be used in the closure below
         let leaf_switcher = leaf.clone();
